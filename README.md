@@ -25,3 +25,25 @@ between sound characteristics and chart performance.
 - Audio features explain a small but meaningful portion of chart success
 
 ## 📁 Repository Structure
+## ▶️ How to Run the Code
+
+### Requirements
+- R (version 4.2 or later)
+- RStudio (recommended)
+
+### Required R packages
+tidyverse, lubridate, broom, scales
+
+### Steps
+1. Clone or download this repository.
+2. Place the dataset `billboard_24years_lyrics_spotify.csv` in the project root directory.
+3. Open RStudio and set the working directory to the project folder.
+4. Open the file `R/analysis.R`.
+5. Run the script from top to bottom.
+
+### Outputs
+- Cleaned dataset: `billboard_clean_2000_2023.csv`
+- Tables: CSV files prefixed with `table_`
+- Figures: PNG files saved in the `figs/` folder
+
+All results are fully reproducible.
