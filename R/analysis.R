@@ -45,7 +45,7 @@ bb <- bb0 %>%
 bb <- bb %>%
   mutate(song_id = tolower(paste0(trimws(title), " — ", trimws(artist))))
 
-# Identify which audio/meta features are present in  file
+# Identifying which audio/meta features are present in  file
 possible_feats <- c(
   "danceability","energy","valence","acousticness","instrumentalness",
   "liveness","speechiness","tempo","loudness","duration_ms","popularity",
@@ -157,7 +157,7 @@ if (length(lm_feats) >= 2) {
   readr::write_csv(mod_tidy,   "table_model_coefficients.csv")
 }
 
-## ---- 7) Export a clean analysis-ready CSV ----
+## ---- 7) Exporting a clean analysis-ready CSV ----
 readr::write_csv(bb, "billboard_clean_2000_2023.csv")
 
 ## ---- 8) Tiny console checks ----
@@ -189,7 +189,7 @@ if (length(show_feats) > 0) {
   ggsave("figs/fig2_feature_trends.png", width = 8, height = 5, dpi = 300)
 }
 
-# -- Fig 3 (correlation): remove zero-variance features first
+# -- Fig 3 (correlation): removing zero-variance features first
 num_feats <- bb %>% select(all_of(feat_cols)) %>% select(where(is.numeric))
 
 if (ncol(num_feats) > 0) {
@@ -243,13 +243,13 @@ bb <- bb %>%
 
 
 set.seed(123)
-#select features ony those present in datases
+#selecting features only those present in datases
 features <- intersect(
   c("danceability","energy","valence","speechiness","acousticness",
     "instrumentalness","liveness","tempo","loudness","key","mode","time_signature"),
   feat_cols
 )
-#build modelling dataset
+#building modelling dataset
 dat0 <- bb %>%
   mutate(success_score = 101 - rank,
          top10 = as.integer(rank <= 10)) %>%
