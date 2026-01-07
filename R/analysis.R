@@ -297,6 +297,20 @@ pred <- as.integer(prob >= 0.5)
 accuracy <- mean(pred == test$top10)
 precision<- sum(pred==1 & test$top10==1) / max(sum(pred==1),1)
 recall   <- sum(pred==1 & test$top10==1) / max(sum(test$top10==1),1)
+# ---- Save logistic regression performance table ----
+
+baseline <- max(prop.table(table(test$top10)))
+
+tbl_logistic_performance <- data.frame(
+  Metric = c("Accuracy", "Precision", "Recall", "Baseline accuracy"),
+  Value  = round(c(accuracy, precision, recall, baseline), 3)
+)
+
+readr::write_csv(
+  tbl_logistic_performance,
+  "table_logistic_performance.csv"
+)
+
 
 cat(sprintf("\nRMSE=%.2f  R2=%.3f  Accuracy=%.3f  Precision=%.3f  Recall=%.3f\n",
             rmse, r2, accuracy, precision, recall))
