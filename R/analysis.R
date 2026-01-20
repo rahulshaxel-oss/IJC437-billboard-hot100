@@ -1,7 +1,9 @@
 # NOTE:
-# All results reported in the main paper are based on complete-case data (N = 486).
-# The imputation, scaling, and train/test split code included below is exploratory
-# and provided for transparency and potential future extension only.
+# Descriptive figures use all available observations (pairwise complete).
+# PCA, k-means clustering, and regression results reported in the paper
+# are based on the complete-case subset (N = 486).
+# Additional imputation and train/test code below is exploratory only.
+
 ## ---- 0) Reset (avoid leftover objects) 
 #clearing the environment so that results are reproducible
 rm(list = ls())
