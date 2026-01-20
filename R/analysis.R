@@ -1,3 +1,7 @@
+# NOTE:
+# All results reported in the main paper are based on complete-case data (N = 486).
+# The imputation, scaling, and train/test split code included below is exploratory
+# and provided for transparency and potential future extension only.
 ## ---- 0) Reset (avoid leftover objects) 
 #clearing the environment so that results are reproducible
 rm(list = ls())
